@@ -1,0 +1,112 @@
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-2) var(--space-2);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 30px;
+  flex: none;
+}
+
+.title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-strong);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  padding-top: var(--space-1);
+}
+
+.action {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background var(--duration), border-color var(--duration), color var(--duration);
+}
+.action:hover:not(:disabled) { background: var(--surface-hover); border-color: var(--border-strong); }
+.action:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.action:disabled { opacity: 0.45; cursor: default; }
+.action .icon { width: 18px; height: 18px; }
+.action .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Auto-sync running: the eye lights up in the accent colour. */
+.action.on {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.action.busy .icon { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.info {
+  margin: var(--space-2) 2px 0;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.45;
+  overflow: hidden;
+}
+.info.error { color: var(--offline); }
+
+.drop {
+  position: fixed;
+  inset: 4px;
+  display: grid;
+  place-items: center;
+  padding: var(--space-3);
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--text-strong);
+  text-align: center;
+  pointer-events: none;
+}
+
+.menu {
+  position: fixed;
+  z-index: 10;
+  min-width: 170px;
+  padding: var(--space-1) 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+.menu-header {
+  padding: 5px var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-1);
+}
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 5px var(--space-3);
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.menu-item:hover, .menu-item:focus-visible { background: var(--accent); color: var(--on-accent); outline: none; }
+
+/* Very narrow docks: icons only. */
+@media (max-width: 250px) {
+  .action .label { display: none; }
+}

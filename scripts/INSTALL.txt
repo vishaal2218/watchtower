@@ -1,0 +1,29 @@
+WATCHTOWER FOR PREMIERE PRO (macOS)
+Automatically imports new files from folders on disk into matching bins.
+Needs Premiere Pro 2020 or later.
+
+INSTALL
+1. Quit Premiere Pro.
+2. In Finder, choose Go > Go to Folder... (Shift-Command-G), paste this line and press Return:
+
+       ~/Library/Application Support/Adobe/CEP/extensions/
+
+   If Finder says the folder can't be found, go to
+   ~/Library/Application Support/Adobe/ instead, create a folder named CEP,
+   and inside it a folder named extensions. Then open that extensions folder.
+
+3. Drag the "watchtower.replica" folder (from this download) into the extensions folder.
+   Drag the folder itself, not a folder that contains it, and don't change
+   anything inside it: the plugin is signed, and edited files stop it loading.
+
+4. Open Premiere Pro and choose Window > Extensions > Watchtower.
+
+USE
+- Folders: pick the folders on disk to watch.
+- Watch: switch automatic importing on or off for the open project.
+  Once it's on, you can close the panel; importing carries on.
+- Sync: import everything new right now.
+- Right-click the panel (or click the three lines) for Settings.
+
+UNINSTALL
+Delete the "watchtower.replica" folder from the extensions folder above.

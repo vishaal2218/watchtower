@@ -1,0 +1,131 @@
+/* Design tokens. Dark is the default; the light theme (v1.5.3) switches on
+   automatically when the host UI is bright. --host-bg is set from the host. */
+:root {
+  --host-bg: #232323;
+  --bg: var(--host-bg);
+  --surface: #2c2c2c;
+  --surface-raised: #353535;
+  --surface-hover: #3b3b3b;
+  --border: #414141;
+  --border-strong: #555555;
+  --text: #dcdcdc;
+  --text-strong: #f2f2f2;
+  --muted: #929292;
+  --accent: #378ef0;
+  --accent-hover: #4b9cf5;
+  --accent-soft: rgba(55, 142, 240, 0.16);
+  --on-accent: #ffffff;
+  --online: #2d9d78;
+  --offline: #e34850;
+  --warn: #e68619;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-xs: 10px;
+  --text-sm: 11px;
+  --text-md: 12px;
+  --text-lg: 14px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --row-h: 26px;
+  --duration: 120ms;
+}
+
+:root[data-theme="light"] {
+  --surface: #ffffff;
+  --surface-raised: #f4f4f4;
+  --surface-hover: #ececec;
+  --border: #d3d3d3;
+  --border-strong: #b8b8b8;
+  --text: #2c2c2c;
+  --text-strong: #111111;
+  --muted: #6e6e6e;
+  --accent: #1473e6;
+  --accent-hover: #0d66d0;
+  --accent-soft: rgba(20, 115, 230, 0.12);
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+/* The hidden attribute must win over component display rules. */
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font: var(--text-md)/1.4 var(--font);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+button, input, select { font: inherit; color: inherit; }
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 28px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--duration), border-color var(--duration);
+}
+.btn:hover { background: var(--surface-hover); }
+.btn:focus-visible, .icon-btn:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.primary:hover { background: var(--accent-hover); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.icon-btn:hover { background: var(--surface-hover); color: var(--text-strong); }
+
+.field {
+  height: 26px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.status-line { min-height: 16px; color: var(--muted); font-size: var(--text-sm); }
+.status-line.error { color: var(--offline); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

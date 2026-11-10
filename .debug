@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Development only: exposes Chrome DevTools for each page on localhost. -->
+<ExtensionList>
+  <Extension Id="watchtower.replica.panel">
+    <HostList><Host Name="PPRO" Port="8088"/><Host Name="AEFT" Port="8092"/></HostList>
+  </Extension>
+  <Extension Id="watchtower.replica.manager">
+    <HostList><Host Name="PPRO" Port="8089"/><Host Name="AEFT" Port="8093"/></HostList>
+  </Extension>
+  <Extension Id="watchtower.replica.settings">
+    <HostList><Host Name="PPRO" Port="8090"/><Host Name="AEFT" Port="8094"/></HostList>
+  </Extension>
+  <Extension Id="watchtower.replica.engine">
+    <HostList><Host Name="PPRO" Port="8091"/><Host Name="AEFT" Port="8095"/></HostList>
+  </Extension>
+</ExtensionList>

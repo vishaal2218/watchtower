@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Watch folders</title>
+  <link rel="stylesheet" href="../shared/theme.css">
+  <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+  <div class="window">
+    <header class="toolbar">
+      <label class="search">
+        <span id="searchIcon" class="search-icon"></span>
+        <input id="search" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="manager.search">
+      </label>
+      <select id="scope" class="field scope" aria-label="Project"></select>
+    </header>
+
+    <div class="grid head" role="row">
+      <span class="c-state" data-i18n="manager.col.state"></span>
+      <span class="c-name" data-i18n="manager.col.name"></span>
+      <span class="c-path" data-i18n="manager.col.path"></span>
+      <span class="c-check" data-i18n="manager.col.sub" data-i18n-title="manager.tip.sub"></span>
+      <span class="c-check" data-i18n="manager.col.rel" data-i18n-title="manager.tip.rel"></span>
+      <span class="c-check" data-i18n="manager.col.seq" data-i18n-title="manager.tip.seq"></span>
+      <span class="c-check" data-i18n="manager.col.flt" data-i18n-title="manager.tip.flt"></span>
+      <span class="c-label" data-i18n="manager.col.label" data-i18n-title="manager.tip.label"></span>
+      <span class="c-remove"></span>
+    </div>
+
+    <div id="rows" class="rows" role="treegrid" tabindex="0" aria-label="Watch folders"></div>
+
+    <footer class="footer">
+      <button id="addBtn" class="btn"><span id="addIcon"></span><span data-i18n="manager.add"></span></button>
+      <p id="status" class="status-line" role="status" aria-live="polite"></p>
+      <button id="cancelBtn" class="btn" data-i18n="manager.cancel"></button>
+      <button id="okBtn" class="btn primary" data-i18n="manager.ok"></button>
+    </footer>
+  </div>
+
+  <div id="drop" class="drop" hidden><span data-i18n="manager.add"></span></div>
+
+  <script src="../shared/cep.js"></script>
+  <script src="../shared/ui.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>

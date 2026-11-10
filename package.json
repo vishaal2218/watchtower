@@ -1,0 +1,15 @@
+{
+  "name": "watchtower-replica",
+  "version": "1.6.1",
+  "private": true,
+  "description": "CEP extension for Premiere Pro and After Effects that auto-syncs project bins with folders on disk.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node --test tests/",
+    "coverage": "node --test --experimental-test-coverage tests/",
+    "check": "node scripts/check.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
